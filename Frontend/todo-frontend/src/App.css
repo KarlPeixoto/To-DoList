@@ -1,38 +1,75 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  flex-direction: column;
 }
 
-.App-link {
-  color: #61dafb;
+.input {
+  background-color: #00000075;
+  color: #EDE4BE;
+  height: 20px;
+  border-radius: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.input::placeholder {
+  color: #EDE4BE;
+  opacity: 0.6;
+}
+
+.button {
+  margin: 10px;
+  border-radius: 14px;
+  width: 100px;
+  height: 30px;
+  background-color: #4A1259;
+  color: #EDE4BE;
+  font-weight: bold;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.button:hover {
+  cursor: pointer;
+  background-color: #EDE4BE;
+  color: #4A1259;
+  font-weight: bold;
+}
+
+.list {
+  margin-left: -32px;
+  background-color: #A192A670;
+  border-radius: 10px;
+  padding: 10px 16px;
+  margin: 8px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  width: 150px;
+  height: 40px;
+}
+
+.tarefa:hover {
+  cursor: pointer;
+}
+
+.buttonDel {
+  margin: 70px;
+  background-color: #A192A670;
+  border: transparent; 
+}
+
+.footer{
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background: #EDE4BE;
+  padding: 10px 70px;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.05);
+  z-index: 10;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
 }

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import './App.css'
 
 function App() {
   const [tarefa, setTarefa] = useState([]);
@@ -13,7 +14,7 @@ function App() {
 
   const toggleTarefa = (tarefa) =>
     axios.put(`http://localhost:8080/tarefas/${tarefa.id}`, {
-      ...completo,
+      titulo: tarefa.titulo,
       completo: !tarefa.completo,
     }).then(listar);
 
@@ -25,27 +26,35 @@ function App() {
   }, []);
 
   return (
-    <div style={{ padding: 20 }}>
+  <>
+    <div className="container">
       <h1>To-Do List</h1>
-      <input value={titulo} onChange={e => setTitulo(e.target.value)} />
-      <button onClick={criar}>Adicionar</button>
-      <ul>
+      <input value={titulo} onChange={e => setTitulo(e.target.value)} placeholder="Digite sua tarefa" className="input" />
+      <button onClick={criar} className="button">Adicionar</button>
         {tarefa.map(tarefa => (
-          <li key={tarefa.id}>
+          <ul className="list" key={tarefa.id}>
             <span
+              className="tarefa"
               onClick={() => toggleTarefa(tarefa)}
               style={{
                 textDecoration: tarefa.completo ? "line-through" : "none",
-                cursor: "pointer",
               }}
-            >
+              >
               {tarefa.titulo}
             </span>
-            <button onClick={() => deleteTarefa(tarefa.id)}>❌</button>
-          </li>
+            <button className="buttonDel" onClick={() => deleteTarefa(tarefa.id)}>❌</button>
+          </ul>
         ))}
-      </ul>
     </div>
+    <div className="footer">
+        <span>Criado por Mateus Karl Peixoto</span>
+        <strong>Jornada um site por dia</strong>
+        <a href="https://github.com/KarlPeixoto/To-DoList.git" target="_blank" rel="noopener noreferrer">
+        https://github.com/KarlPeixoto/To-DoList.git
+        </a>
+    </div>
+  </>
+    
   );
 }
 
